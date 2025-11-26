@@ -154,5 +154,4 @@ const quiz = [
     correct: '孫悟空' 
   }
 ]
-
 export default quiz;

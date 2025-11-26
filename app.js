@@ -48,6 +48,7 @@ const setupQuiz = () => {
     buttonIndex++;
   }
 }
+
 setupQuiz();//関数呼び出し
 
 //ボタンをクリックしたら正誤判定する
