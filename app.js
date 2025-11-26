@@ -1,36 +1,5 @@
-//定数で問題文、選択肢、答えを３問分宣言
-const quiz = [
-  {
-    question: 'ドラゴンボール原作で二番目に強いとされるキャラクターは誰？',
-    answers: [
-      '魔人ブウ(孫悟飯吸収)',
-      '魔人ブウ(ゴテンクス吸収)',
-      '孫悟空(超サイヤ人3)',
-      'ベジータ(魔人化)'],
-
-    correct: '魔人ブウ(孫悟飯吸収)' //答え
-  },
-  {
-    question: 'ドラゴンボールナメック星編でフリーザにとどめを刺したのは誰？',
-    answers: [
-      'ベジータ',
-      '孫悟空',
-      'トランクス',
-      'クリリン'],
-
-    correct: '孫悟空' 
-  },  
-  {
-    question: 'ドラゴンボール原作で単体最強とされるキャラクターは誰？',
-    answers: [
-      '孫悟飯(アルティメット)',
-      'ベジット',
-      '孫悟空(超サイヤ人3)',
-      'ベジータ(魔人化)'],
-
-    correct: '孫悟飯(アルティメット)' 
-  }
-]
+//問題文、選択肢、正解オブジェクトの配列をインポート
+import quiz from './quiz_data.js';
 
 //後々while文で使う
 const quizLength = quiz.length;
@@ -86,13 +55,13 @@ setupQuiz();//関数呼び出し
 const clickHandler = (e) => {
   //文字列の一致を判定するときは === を使う
   if(quiz[quizIndex].correct === e.target.textContent){
-    //windowオブジェクトのアラート関数を呼び出し
-    window.alert('正解！');
     //正解したらスコアを足してあげる。
     score++;
+    //windowオブジェクトのアラート関数を呼び出し
+    window.alert('正解！　現在の正解数' + score + '/' + quizLength);
   }
   else{
-    window.alert('不正解！');
+    window.alert('不正解！　現在の正解数' + score + '/' + quizLength);
   }
 
   quizIndex++;
@@ -103,7 +72,7 @@ const clickHandler = (e) => {
   }
   else{
     //問題数がもうなければこちらを実行
-    window.alert('終了！あなたの正解数は' + score + '/' + quizLength + 'です！');
+    window.alert('終了！　あなたの正解数は' + score + '/' + quizLength + 'です！');
   }
 };
 
