@@ -1,0 +1,35 @@
+<!doctype html> <!-- ★ HTML5 宣言: ドキュメントが HTML5 であることを示す -->
+<html lang="ja"> <!-- ★ ページの言語を日本語に設定（アクセシビリティとSEO向け） -->
+<head>
+  <meta charset="utf-8"> <!-- ★ 文字エンコーディングを UTF-8 に指定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- ★ レスポンシブ対応: ビューポート設定 -->
+  <title>クイズ結果 - ドラゴンボールクイズ</title> <!-- ★ ブラウザタブに表示されるタイトル -->
+  <!-- Bootstrap CSS を CDN から読み込む（見た目を簡単に整えるため） -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+        crossorigin="anonymous"> <!-- ★ CDN 読み込み: 安全性のため integrity と crossorigin を指定 -->
+</head>
+<body>
+  <!-- ★ container: コンテンツを中央に寄せる Bootstrap のラッパー -->
+  <!-- ★ vh-100: 表示領域の高さを 100% にして縦中央に配置 -->
+  <div class="container vh-100 d-flex flex-column justify-content-center align-items-center">
+    <h1 class="mb-3">結果</h1> <!-- ★ ページ見出し: 結果ページであることを示す -->
+    <!-- ★ result-box: JavaScript(result.js) がここを書き換えてスコア表示を行う -->
+    <div id="result-box" class="alert alert-info text-center" role="alert">
+      <!-- ★ 初期テキスト（読み込み中）: JS が結果を読み込むまで表示される -->
+      あなたの正答数は 0 / 0 です。読み込み中...
+    </div>
+
+    <!-- ★ ボタン群: 再挑戦またはスタート画面へ戻る -->
+    <div class="d-flex gap-2 mt-3">
+      <button id="restart-btn" class="btn btn-primary">もう一度挑戦</button> <!-- ★ restart-btn: スコアを消して app.html に戻る -->
+      <button id="to-startpage-btn" class="btn btn-secondary">スタート画面へ</button> <!-- ★ to-startpage-btn: index.html に戻る -->
+    </div>
+  </div>
+
+  <!-- ★ result.js を読み込む: localStorage からスコアを取得して表示・ボタン処理を行う -->
+  <script type="module" src="./result.js"></script>
+  <!-- ★ type="module": ESモジュールとして読み込む（import/export を使う場合に推奨） -->
+</body>
+</html>

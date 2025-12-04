@@ -1,48 +1,36 @@
-<!doctype html>
-<html lang="">
+<!doctype html> <!-- HTML5 宣言 -->
+<html lang="ja"> <!-- ページ言語を日本語に設定 -->
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DBクイズ</title>
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"
-  >
-  <meta name="description" content="">
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <!-- <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest"> -->
-
-  <meta name="theme-color" content="#fafafa">
+  <meta charset="utf-8"> <!-- 文字エンコーディングを UTF-8 に指定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- レスポンシブ対応のビューポート設定 -->
+  <title>ドラゴンボールクイズ - スタート</title> <!-- ブラウザタブに表示されるタイトル -->
+  <!-- Bootstrap の CSS を CDN から読み込む（ページの見た目を簡単に整える） -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+        crossorigin="anonymous">
 </head>
 
 <body>
-  <div class="container"><!--枠組み　Webサイトを画面にフィットして表示させる container-->
+  <!-- 全画面を使う Flex コンテナ（縦方向） -->
+  <div class="d-flex flex-column align-items-center" style="min-height:2vh; padding-top:12vh;">
+    <!-- d-flex: Flexbox を有効化、flex-column: 子要素を縦方向に並べる、align-items-center: 横方向中央揃え -->
     
-    <div id="js-question" class="mt-3 alert alert-primary" role="alert">
-     A simple primary alert—check it out!
-    </div>
+    <!-- タイトル（画面上寄り中央に表示される） -->
+    <h1 class="mb-4">ドラゴンボールクイズ</h1>
+    <!-- h1: 見出し、mb-4: 下マージンを付けてボタンと間隔を空ける -->
 
-    <div class="d-flex justify-content-center">
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="ms-1 btn btn-secondary">Secondary</button>
-      <button type="button" class="ms-1 btn btn-success">Success</button>
-      <button type="button" class="ms-1 btn btn-danger">Danger</button>
-    </div>
-
+    <!-- スタートボタン（押すと index.html に遷移） -->
+    <button id="start-btn" class="btn btn-primary btn-lg">
+      スタート
+    </button>
+    <!-- id="start-btn": index.js で選択するための識別子、btn/btn-primary/btn-lg: Bootstrap のボタンスタイル -->
   </div>
 
-  <script type="module" src="app.js"></script> <!--app.jsを読み込む-->
-
+  <!-- スタート画面用のスクリプトを読み込む -->
+  <script type="module" src="./index.js"></script>
+  <!-- type="module": ES モジュールとして読み込む（import/export が使える場合に推奨） -->
 </body>
 
 </html>

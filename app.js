@@ -48,7 +48,6 @@ const setupQuiz = () => {
     buttonIndex++;
   }
 }
-
 setupQuiz();//関数呼び出し
 
 //ボタンをクリックしたら正誤判定する
@@ -73,7 +72,13 @@ const clickHandler = (e) => {
   }
   else{
     //問題数がもうなければこちらを実行
-    window.alert('終了！　あなたの正解数は' + score + '/' + quizLength + 'です！');
+   try {
+      localStorage.setItem('quizScore', String(score));       // ★ ローカルストレージに得点を保存
+      localStorage.setItem('quizLength', String(quizLength)); // ★ ローカルストレージに問題数を保存
+    } catch (err) {
+      console.error('localStorage error:', err);             // ★ 保存失敗時はコンソールに出す
+    }
+    window.location.href = './result.html';     
   }
 };
 
