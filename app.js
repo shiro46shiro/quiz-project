@@ -58,10 +58,10 @@ const clickHandler = (e) => {
     //正解したらスコアを足してあげる。
     score++;
     //windowオブジェクトのアラート関数を呼び出し
-    window.alert('正解！　現在の正解数' + score + '/' + quizLength);
-  }
-  else{
-    window.alert('不正解！　現在の正解数' + score + '/' + quizLength);
+  //   window.alert('正解！　現在の正解数' + score + '/' + quizLength);
+  // }
+  // else{
+  //   window.alert('不正解！　現在の正解数' + score + '/' + quizLength);
   }
 
   quizIndex++;

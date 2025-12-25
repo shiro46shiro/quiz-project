@@ -1,48 +1,28 @@
-<!--書き写し-->　
-<!doctype html>　<!-- HTML5宣言　<! は「タグ」ではなく「宣言（declaration）」の始まりを表します。 -->
-<html lang="ja"> <!--　HTMLドキュメントのルート要素　ページ言語を日本語に設定-->
-
+<!doctype html> <!-- ★ HTML5 宣言: ドキュメントが HTML5 であることを示す -->
+<html lang="ja"> <!-- ★ ページの言語を日本語に設定（アクセシビリティとSEO向け） -->
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <!--　モバイルブラウザに表示領域（ビューポート）の幅と初期拡大率を伝える宣言--> 
-    <!-- width=device-width → 表示領域の幅を端末の画面幅に合わせる、initial-scale=1 → 初期ズームを100％にする(自動で縮小されるのを防ぐ)-->
-    
-    <title>ドラゴンボールクイズ - スタート</title> <!-- ブラウザタブに表示されるタイトル -->
-    
-    <!-- Bootstrap の CSS を CDN から読み込む（ページの見た目を簡単に整える） -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  <meta charset="utf-8"> <!-- ★ 文字エンコーディングを UTF-8 に指定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- ★ レスポンシブ対応: ビューポート設定 -->
+  <title>クイズ結果 - ドラゴンボールクイズ</title> <!-- ★ ブラウザタブに表示されるタイトル -->
+  <!-- Bootstrap CSS を CDN から読み込む（見た目を簡単に整えるため） -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-        crossorigin="anonymous">
-
+        crossorigin="anonymous"> <!-- ★ CDN 読み込み: 安全性のため integrity と crossorigin を指定 -->
 </head>
-
 <body>
-    <!-- 全画面を使う Flex コンテナ（縦方向） -->
-    <!--Flex（Flexbox）は、要素（子要素）を一方向（行または列）に柔軟に並べて配置・整列・サイズ調整できる仕組み-->
-    <!--長所：中央揃えや等間隔配置、要素の自動伸縮が簡単にできる。-->
-    <div class="d-flex flex-column align-items-center" style="min-height:100vh; padding-top:30vh;">
-    <!-- d-flex: Flexbox を有効化、flex-column: 子要素を縦方向に並べる、align-items-center: 横方向中央揃え -->
-    <!--min-heightとは-->
-
-        <!-- タイトル（画面上寄り中央に表示される） -->
-        <h1 class="mb-5">ドラゴンボールクイズ</h1>
-        <!-- h1: 見出し、mb-4: 下マージンを付けてボタンと間隔を空ける -->
-
-        <!-- スタートボタン（押すと index.html に遷移） -->
-        <button id="start-btn" class="btn btn-primary btn-lg">
-        スタート
-        </button>
-        <!-- id="start-btn": index.js で選択するための識別子を付けておく、btn/btn-primary/btn-lg: Bootstrap のボタンスタイル -->
+  <div class="container vh-100 d-flex flex-column justify-content-center align-items-center">
+    <h1 class="mb-3">結果</h1>
+    <div id="result-box" class="alert alert-info text-center" >
+        あなたの正答数は0/0です。
     </div>
 
-        <!-- スタート画面用のスクリプトを読み込む -->
-        <script type="module" src="./dummy.js"></script>
-        <!-- type="module": ES モジュールとして読み込む（import/export が使える場合に推奨） -->
-   
-    
-</body>
+    <div class="d-flex gap-2 mt-3">
+      <button id="restart-btn" class="btn btn-primary">もう一度挑戦</button>
+      <button id="to-startpage-btn" class="btn btn-secondary">スタート画面へ</button>
+    </div>
 
+    <script type="module" src="./dummy.js"></script>
+ </div>
+</body>
 </html>
