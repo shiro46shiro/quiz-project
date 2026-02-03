@@ -14,13 +14,18 @@
 
 <body>
   <!-- 全画面を使う Flex コンテナ（縦方向） -->
-  <div class="d-flex flex-column align-items-center" style="min-height:2vh; padding-top:12vh;">
+  <div class="d-flex flex-column align-items-center text-center" style="min-height:2vh; padding-top:12vh;">
     <!-- d-flex: Flexbox を有効化、flex-column: 子要素を縦方向に並べる、align-items-center: 横方向中央揃え -->
     
     <!-- タイトル（画面上寄り中央に表示される） -->
     <h1 class="mb-4" style="font-size: 50px;">ドラゴンボールクイズ</h1>
     <!-- h1: 見出し、mb-4: 下マージンを付けてボタンと間隔を空ける -->
 
+    <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label " style="font-size: 25px;">名前を決めてください</label>
+    <input type="username" class="form-control form-control-lg text-center" id="exampleFormControlInput1" placeholder="ここに入力">
+    </div>
+    
     <!-- スタートボタン（押すと index.html に遷移） -->
     <button id="start-btn" class="btn btn-primary btn-lg">
       スタート
