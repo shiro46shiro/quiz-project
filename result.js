@@ -8,17 +8,37 @@ const $toStartpageBtn = document.getElementById('to-startpage-btn'); // スタ�
 const $rawScore = localStorage.getItem('quizScore');
 const $rawLength = localStorage.getItem('quizLength');
 const $resultUserName = localStorage.getItem('userName');//　ユーザーネーム取得
+const $year = localStorage.getItem('year');
+const $month = localStorage.getItem('month');
+const $day = localStorage.getItem('day');
 
 let quizRanknig; //ランキング(json形式で保存する)
 
 //ランキングデータ作成・更新
-const updateRanking = (userName, score, length) => {
+const updateRanking = () => {
   //ローカルストレージからスコアを追加する既存のランキングデータを配列型に変換（なければ空配列）
   let ranking = JSON.parse(localStorage.getItem('quizRanking')) || [];
   //スコア追加
-  ranking.push({name:userName, score: score});
+  ranking.push({userName:$resultUserName, score:Number($rawScore), year:$year, month:$month, day:$day});
+  //現在月でないものは削除
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth() +1;
+  ranking = ranking.filter(item => {return item.year == currentYear && item.month == currentMonth});
+
   //ソート スコアプロパティ降順
   ranking.sort((a,b) => b.score - a.score);
+  //スコアが高く日付が新しいものを上位
+  ranking.sort((a,b) => {
+    if (a.score !== b.score) {
+      return b.score - a.score; // スコアが高い順
+    }
+    // スコアが同じ場合は日付が新しい順
+    else if (a.day !== b.day) {
+    return b.day - a.day; //日付が新しい順
+    }
+  });
+
   //上位10件までに絞る 開始位置0、要素数10
   ranking = ranking.slice(0,10);
   //ランキングデータをJson形式に変換して保存
