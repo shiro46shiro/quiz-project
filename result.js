@@ -15,11 +15,11 @@ const $day = localStorage.getItem('day');
 let quizRanknig; //ランキング(json形式で保存する)
 
 //ランキングデータ作成・更新
-const updateRanking = () => {
+const updateRanking = (userName, score, year, month, day) => {
   //ローカルストレージからスコアを追加する既存のランキングデータを配列型に変換（なければ空配列）
   let ranking = JSON.parse(localStorage.getItem('quizRanking')) || [];
   //スコア追加
-  ranking.push({userName:$resultUserName, score:Number($rawScore), year:$year, month:$month, day:$day});
+  ranking.push({userName:userName, score:score, year:year, month:month, day:day});
   //現在月でないものは削除
   const now = new Date();
   const currentYear = now.getFullYear();
@@ -45,7 +45,8 @@ const updateRanking = () => {
   localStorage.setItem('quizRanking', JSON.stringify(ranking));
 }
 //関数呼び出し
-updateRanking($resultUserName, Number($rawScore), Number($rawLength));
+updateRanking($resultUserName, Number($rawScore), Number($year), Number($month), Number($day));
+console.log(localStorage.getItem('quizRanking'));//ランキングデータ確認用
 
 //結果表示
 if ($rawScore === null || $rawLength === null) {
